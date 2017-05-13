@@ -172,50 +172,50 @@ class HomePage extends React.Component {
         }
         <a-scene embedded vr-mode-ui="enabled: false">
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="2 -8 1" rotation="30 30 0" color="skyblue" id="parking" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="0 -10 -15" rotation="30 30 0" color="skyblue" id="parking" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="15 4 -5" rotation="30 30 0" color="skyblue" id="headup" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="-15 -5 -10" rotation="30 30 0" color="skyblue" id="headup" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="-2 -3 -5" rotation="30 30 0" color="skyblue" id="speaker" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="14 -20 -7" rotation="30 30 0" color="skyblue" id="speaker" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="-10 -5 10" rotation="30 30 0" color="skyblue" id="switch" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="15 -7 18" rotation="30 30 0" color="skyblue" id="switch" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="0 -8 3" rotation="30 30 0" color="skyblue" id="smartphone" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="-10 -10 8" rotation="30 30 0" color="skyblue" id="smartphone" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="20 0 -1" rotation="30 30 0" color="skyblue" id="display" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="15 -5 5" rotation="30 30 0" color="skyblue" id="display" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="-8 -5 20" rotation="30 30 0" color="skyblue" id="back_seat" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="-3 -8 15" rotation="30 30 0" color="skyblue" id="back_seat" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="5 -8 9" rotation="30 30 0" color="skyblue" id="driver_seat" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="8 -8 -10" rotation="30 30 0" color="skyblue" id="driver_seat" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="8 -1 -7" rotation="30 30 0" color="skyblue" id="navi" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="8 2 -13" rotation="30 30 0" color="skyblue" id="navi" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="6 -14 -8" rotation="30 30 0" color="skyblue" id="gearbox" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="5 -10 20" rotation="30 30 0" color="skyblue" id="gearbox" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
 
-          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="15 -1 4" rotation="30 30 0" color="skyblue" id="stearing" class="colider">
+          <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="4 -5 -20" rotation="30 30 0" color="skyblue" id="stearing" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
-
+          
           <a-entity position="0 1.8 4">
             <a-entity camera look-controls mouse-cursor>
               <a-cursor fuse="false" material="color: yellow; opacity: 0.2"></a-cursor>
