@@ -27,33 +27,7 @@ class HomePage extends React.Component {
 
   state = {
     modal: false,
-  };
-
-  componentDidMount() {
-    document.title = title;
-    for(let target of document.querySelectorAll('.colider')) {
-      target.addEventListener('click', (e) => {
-        if (!e.detail.cursorEl)
-          this.setState({ modal: true, modalId: e.target.id, });
-      });
-      target.addEventListener('mouseenter', (e) => {
-        if (e.detail.cursorEl)
-          e.target.setAttribute('material', 'color', 'orange');
-      });
-      target.addEventListener('mouseleave', (e) => {
-        if (e.detail.cursorEl)
-          e.target.setAttribute('material', 'color', 'skyblue')
-      });
-    }
-  }
-  
-  render() {
-    
-
-    const ratio = "1.5";
-    const opacity = "0.7";
-    const { modal, modalId } = this.state;
-    const modalData = {
+    items: {
       parking: {
         title: "전자식 주차브레이크",
         msg: `
@@ -62,6 +36,8 @@ class HomePage extends React.Component {
           정교하게 다듬어진 디테일들이 품격있고 섬세한 취향을 만족시켜 드릴 것입니다.
         `,
         backgroundImage: "../../25_parking.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       headup: {
         title: "헤드업 디스플레이",
@@ -77,6 +53,8 @@ class HomePage extends React.Component {
           12 스피커에서 울려퍼지는 JBL 프리미엄 사운드와 그렌저IG의 콜라보로 더욱 행복한 드라이빙을 선사합니다.
         `,
         backgroundImage: "../../23_speaker.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       switch: {
         title: "동승석 워크인 스위치",
@@ -85,6 +63,8 @@ class HomePage extends React.Component {
           당신의 삶을 스마트하게 케어할 수 있도록 그랜저가 한 발 더 앞서갑니다.
         `,
         backgroundImage: "../../22_switch.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       smartphone: {
         title: "스마트폰 무선충전",
@@ -93,6 +73,8 @@ class HomePage extends React.Component {
           당신의 삶을 스마트하게 케어할 수 있도록 그랜저가 한 발 더 앞서갑니다.
         `,
         backgroundImage: "../../21_smartphone.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       display: {
         title: "디스플레이",
@@ -103,6 +85,8 @@ class HomePage extends React.Component {
           휴식을 유도합니다.
         `,
         backgroundImage: "../../19_tired.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       back_seat: {
         title: "뒷좌석",
@@ -112,6 +96,8 @@ class HomePage extends React.Component {
           정교하게 다듬어진 디테일들이 품격있고 섬세한 취향을 만족시켜 드릴 것입니다.
         `,
         backgroundImage: "../../15_back_seat.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       driver_seat: {
         title: "운전석",
@@ -121,6 +107,8 @@ class HomePage extends React.Component {
           정교하게 다듬어진 디테일들이 품격있고 섬세한 취향을 만족시켜 드릴 것입니다.
         `,
         backgroundImage: "../../15_driver_seat.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       navi: {
         title: "네비게이션",
@@ -129,6 +117,8 @@ class HomePage extends React.Component {
           당신의 삶을 스마트하게 케어할 수 있도록 그랜저가 한 발 더 앞서갑니다.
         `,
         backgroundImage: "../../16_display_2.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       gearbox: {
         title: "기어박스",
@@ -136,6 +126,8 @@ class HomePage extends React.Component {
           유럽산 명품 8단 오토미션과 함께 부드러운 드라이빙을 즐겨보세요.
         `,
         backgroundImage: "../../24_headup.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
       stearing: {
         title: "스티어링 휠",
@@ -145,25 +137,75 @@ class HomePage extends React.Component {
           기능 중 하나를 선택하여 사용할 수 있습니다.
         `,
         backgroundImage: "../../17_stearing.png",
+        enterMouseTimeStamp: 0,
+        leaveMouseTimeStamp: 0,
       },
-    };
+    }
+  };
+
+  componentDidMount() {
+    document.title = title;
+    for(let target of document.querySelectorAll('.colider')) {
+      target.addEventListener('click', (e) => {
+        if (!e.detail.cursorEl)
+          this.setState({ modal: true, modalId: e.target.id, });
+      });
+      target.addEventListener('mouseenter', (e) => {
+        if (e.detail.cursorEl) {
+          const item = this.state.items[e.target.id];
+          item.enterMouseTimeStamp = performance.now();
+          e.target.setAttribute('material', 'color', 'orange');
+        }
+      });
+      target.addEventListener('mouseleave', (e) => {
+        if (e.detail.cursorEl) {
+          const item = this.state.items[e.target.id];
+          item.leaveMouseTimeStamp = performance.now();
+          this.sendMouseStayingPeriod(item);
+          e.target.setAttribute('material', 'color', 'skyblue')
+        }
+      });
+    }
+  }
+
+  sendMouseStayingPeriod(item) {
+    console.log(item);
+  }
+
+  openModal(modalId) {
+    // TODO: sendBtnClickEvent();
+    console.log('click', modalId);
+    const modalData = this.state.items;
+    return (
+      <div className={s.modalBackdrop}>
+        <div className={s.modal}>
+          <section className={s.wrapper}>
+            <div className={s.photo} style={{ backgroundImage: `url(${modalData[modalId].backgroundImage})` }} >
+              </div>
+            <h4 className={s.title}>{modalData[modalId].title}</h4>
+            <article className={s.description}>
+              {modalData[modalId].msg}
+            </article>
+          </section>
+          <button className={s.close_button} onClick={()=>this.closeModal({ modal: false })}>✕</button>
+        </div>
+      </div>
+    );
+  }
+
+  closeModal() {
+    this.setState({ modal: false });
+  }
+
+  render() {
+    const ratio = "1.5";
+    const opacity = "0.7";
+    const { modal, modalId } = this.state;
+
     return (
       <Layout className={s.content}>
         {
-          modal ?
-            <div className={s.modalBackdrop}>
-              <div className={s.modal}>
-                <section className={s.wrapper}>
-                  <div className={s.photo} style={{ backgroundImage: `url(${modalData[modalId].backgroundImage})` }} >
-                    </div>
-                  <h4 className={s.title}>{modalData[modalId].title}</h4>
-                  <article className={s.description}>
-                    {modalData[modalId].msg}                  
-                  </article>
-                </section>
-                <button className={s.close_button} onClick={()=>this.setState({ modal: false })}>✕</button>
-              </div>
-            </div> : null
+          modal ? this.openModal(modalId) : null
         }
         <a-scene embedded vr-mode-ui="enabled: false">
 
@@ -186,7 +228,7 @@ class HomePage extends React.Component {
           <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="0 -8 3" rotation="30 30 0" color="skyblue" id="smartphone" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
-          
+
           <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="20 0 -1" rotation="30 30 0" color="skyblue" id="display" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
