@@ -8,6 +8,11 @@
     }
   },
   {
+    "path": "/panorama",
+    "page": "./panorama",
+    "chunk": "panorama"
+  },
+  {
     "path": "/video",
     "page": "./video",
     "chunk": "video"
