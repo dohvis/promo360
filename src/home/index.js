@@ -161,20 +161,65 @@ class HomePage extends React.Component {
         if (e.detail.cursorEl) {
           const item = this.state.items[e.target.id];
           item.leaveMouseTimeStamp = performance.now();
-          this.sendMouseStayingPeriod(item);
+          this.sendMouseStayingPeriod(item, e.target.id);
           e.target.setAttribute('material', 'color', 'skyblue')
         }
       });
     }
   }
 
-  sendMouseStayingPeriod(item) {
+  sendMouseStayingPeriod(item, id) {
     console.log(item);
+    const stayingTime = parseFloat(item.leaveMouseTimeStamp - item.enterMouseTimeStamp);
+    if (stayingTime < 1000)
+      return true;
+    return fetch('../staying_time', {
+      method: "POST",
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({
+        object: `${id}`,
+        staying_time: stayingTime,
+      }),
+    })
+  	.then(function(response) {
+  		if (response.status >= 400) {
+  			throw new Error("Bad response from server");
+  		}
+  		return response.json();
+  	})
+  	.then(function(json) {
+  		console.log(json);
+  	});
+  }
+
+  sendBtnClickEvent(id) {
+    return fetch('../click_event', {
+      method: "POST",
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({
+        object: `${id}`,
+      }),
+    })
+  	.then(function(response) {
+  		if (response.status >= 400) {
+  			throw new Error("Bad response from server");
+  		}
+  		return response.json();
+  	})
+  	.then(function(json) {
+  		console.log(json);
+  	});
   }
 
   openModal(modalId) {
-    // TODO: sendBtnClickEvent();
     console.log('click', modalId);
+    this.sendBtnClickEvent(modalId);
     const modalData = this.state.items;
     return (
       <div className={s.modalBackdrop}>

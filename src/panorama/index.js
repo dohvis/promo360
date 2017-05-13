@@ -124,15 +124,60 @@ class HomePage extends React.Component {
         if (e.detail.cursorEl) {
           const item = this.state.items[e.target.id];
           item.leaveMouseTimeStamp = performance.now();
-          this.sendMouseStayingPeriod(item);
+          this.sendMouseStayingPeriod(item, e.target.id);
           e.target.setAttribute('material', 'color', 'skyblue')
         }
       });
     }
   }
 
-  sendMouseStayingPeriod(item) {
+  sendMouseStayingPeriod(item, id) {
     console.log(item);
+    const stayingTime = parseFloat(item.leaveMouseTimeStamp - item.enterMouseTimeStamp);
+    if (stayingTime < 1000)
+      return true;
+    return fetch('../staying_time', {
+      method: "POST",
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({
+        object: `${id}`,
+        staying_time: stayingTime,
+      }),
+    })
+  	.then(function(response) {
+  		if (response.status >= 400) {
+  			throw new Error("Bad response from server");
+  		}
+  		return response.json();
+  	})
+  	.then(function(json) {
+  		console.log(json);
+  	});
+  }
+
+  sendBtnClickEvent(id) {
+    return fetch('../click_event', {
+      method: "POST",
+      headers: new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({
+        object: `${id}`,
+      }),
+    })
+  	.then(function(response) {
+  		if (response.status >= 400) {
+  			throw new Error("Bad response from server");
+  		}
+  		return response.json();
+  	})
+  	.then(function(json) {
+  		console.log(json);
+  	});
   }
 
   openModal(modalId) {
@@ -215,7 +260,7 @@ class HomePage extends React.Component {
           <a-box opacity={opacity} depth={ratio} height={ratio} width={ratio} position="4 -5 -20" rotation="30 30 0" color="skyblue" id="stearing" class="colider">
             <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
           </a-box>
-          
+
           <a-entity position="0 1.8 4">
             <a-entity camera look-controls mouse-cursor>
               <a-cursor fuse="false" material="color: yellow; opacity: 0.2"></a-cursor>
