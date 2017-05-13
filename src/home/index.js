@@ -35,7 +35,7 @@ class HomePage extends React.Component {
           엄선된 고급 소재와 깊이 있는 컬러, 새로운 플로팅 타입 디스플레이와 스마트 멀티미디어 시스템까지
           정교하게 다듬어진 디테일들이 품격있고 섬세한 취향을 만족시켜 드릴 것입니다.
         `,
-        backgroundImage: "../../25_parking.png",
+        backgroundImage: "../../images/1/25_parking.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -45,14 +45,14 @@ class HomePage extends React.Component {
           그렌저에게 안전이란 앞 차와 사고가 나기전에, 뒤 차와 충돌하기 전에, 차선을 벗어나기 전에 미리 사고를 예방하는 것입니다.
           이 모든 것을 헤드업 디스플레이를 통해 실현하였습니다.
         `,
-        backgroundImage: "../../24_headup.png",
+        backgroundImage: "../../images/1/24_headup.png",
       },
       speaker: {
         title: "프리미엄 사운드 시스템",
         msg: `
           12 스피커에서 울려퍼지는 JBL 프리미엄 사운드와 그렌저IG의 콜라보로 더욱 행복한 드라이빙을 선사합니다.
         `,
-        backgroundImage: "../../23_speaker.png",
+        backgroundImage: "../../images/1/23_speaker.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -62,7 +62,7 @@ class HomePage extends React.Component {
           스마트 멀티미디어 시스템과 고품격 사운드 시스템 등 고급 준대형 세단이 가져야 할 모든 편의사양들이 적용되었습니다.
           당신의 삶을 스마트하게 케어할 수 있도록 그랜저가 한 발 더 앞서갑니다.
         `,
-        backgroundImage: "../../22_switch.png",
+        backgroundImage: "../../images/1/22_switch.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -72,7 +72,7 @@ class HomePage extends React.Component {
           스마트 멀티미디어 시스템과 고품격 사운드 시스템 등 고급 준대형 세단이 가져야 할 모든 편의사양들이 적용되었습니다.
           당신의 삶을 스마트하게 케어할 수 있도록 그랜저가 한 발 더 앞서갑니다.
         `,
-        backgroundImage: "../../21_smartphone.png",
+        backgroundImage: "../../images/1/21_smartphone.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -84,7 +84,7 @@ class HomePage extends React.Component {
           피로나 부주의한 운전 패턴으로 판단되면 팝업 메시지와 경보음을 통해
           휴식을 유도합니다.
         `,
-        backgroundImage: "../../19_tired.png",
+        backgroundImage: "../../images/1/19_tired.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -95,7 +95,7 @@ class HomePage extends React.Component {
           엄선된 고급 소재와 깊이 있는 컬러, 새로운 플로팅 타입 디스플레이와 스마트 멀티미디어 시스템까지
           정교하게 다듬어진 디테일들이 품격있고 섬세한 취향을 만족시켜 드릴 것입니다.
         `,
-        backgroundImage: "../../15_back_seat.png",
+        backgroundImage: "../../images/1/15_back_seat.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -106,7 +106,7 @@ class HomePage extends React.Component {
           엄선된 고급 소재와 깊이 있는 컬러, 새로운 플로팅 타입 디스플레이와 스마트 멀티미디어 시스템까지
           정교하게 다듬어진 디테일들이 품격있고 섬세한 취향을 만족시켜 드릴 것입니다.
         `,
-        backgroundImage: "../../15_driver_seat.png",
+        backgroundImage: "../../images/1/15_driver_seat.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -116,7 +116,7 @@ class HomePage extends React.Component {
           스마트 멀티미디어 시스템과 고품격 사운드 시스템 등 고급 준대형 세단이 가져야 할 모든 편의사양들이 적용되었습니다.
           당신의 삶을 스마트하게 케어할 수 있도록 그랜저가 한 발 더 앞서갑니다.
         `,
-        backgroundImage: "../../16_display_2.png",
+        backgroundImage: "../../images/1/16_display_2.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -125,7 +125,7 @@ class HomePage extends React.Component {
         msg: `
           유럽산 명품 8단 오토미션과 함께 부드러운 드라이빙을 즐겨보세요.
         `,
-        backgroundImage: "../../24_headup.png",
+        backgroundImage: "../../images/1/24_headup.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
@@ -136,7 +136,7 @@ class HomePage extends React.Component {
           방지해 줍니다. 차선 이탈경보 기능, 차선 유지보조 기능, 능동 조향보조
           기능 중 하나를 선택하여 사용할 수 있습니다.
         `,
-        backgroundImage: "../../17_stearing.png",
+        backgroundImage: "../../images/1/17_stearing.png",
         enterMouseTimeStamp: 0,
         leaveMouseTimeStamp: 0,
       },
