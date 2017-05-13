@@ -27,14 +27,14 @@ class HomePage extends React.Component {
 
   state = {
     modal: false,
-  };
+  }
 
   componentDidMount() {
     document.title = title;
     for(let target of document.querySelectorAll('.colider')) {
       target.addEventListener('click', (e) => {
         if (!e.detail.cursorEl)
-          this.setState({ modal: true, modalId: e.target.id, });
+          this.setState({ modal: true });
       });
       target.addEventListener('mouseenter', (e) => {
         if (e.detail.cursorEl)
@@ -48,56 +48,24 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { modal, modalId } = this.state;
-    const modalData = {
-      navi: {
-        title: "네비게이션",
-      },
-      gearbox: {
-        title: "기어박스",
-      },
-      sterring: {
-        title: "핸들",
-      },
-      seat: {
-        title: "시트",
-      }
-    };
+    const { modal } = this.state;
     return (
       <Layout className={s.content}>
         {
           modal ?
-            <div className={s.modalBackdrop}>
-              <div className={s.modal}>
-                {modalData[modalId].title}
+            <div style={{position: 'fixed', top: 0, left: 0, zIndex: 9, width: '100%', height: '100%', background: 'rgba(0,0,0,0.4)'}}>
+              <div style={{position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80%', height: '80%', backgroundColor: 'white'}}>
                 <button onClick={()=>this.setState({ modal: false })}>닫기</button>
               </div>
             </div> : null
         }
         <a-scene embedded vr-mode-ui="enabled: false">
-          <a-box position="6 1 -8" rotation="30 30 0" color="skyblue" id="navi" class="colider">
-            <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
-          </a-box>
+          <a-assets>
+            <video id="video" src="../videoplayback.mp4"
+                   autoplay loop crossorigin></video>
+          </a-assets>
 
-          <a-box position="6 -14 -8" rotation="30 30 0" color="skyblue" id="gearbox" class="colider">
-            <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
-          </a-box>
-
-          <a-box position="20 -1 0" rotation="30 30 0" color="skyblue" id="sterring" class="colider">
-            <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
-          </a-box>
-
-          <a-box position="-10 3 5" rotation="30 30 0" color="skyblue" id="seat" class="colider">
-            <a-animation attribute="rotation" dur="2000" fill="backwards" repeat="indefinite" to="30 30 360"></a-animation>
-          </a-box>
-
-          <a-entity position="0 1.8 4">
-            <a-entity camera look-controls mouse-cursor>
-              <a-cursor fuse="false" material="color: yellow; opacity: 0.2"></a-cursor>
-            </a-entity>
-          </a-entity>
-
-          <a-sky src={"../car.jpg"} rotation="0 -130 0"></a-sky>
+          <a-videosphere src="#video" rotation="0 180 0"></a-videosphere>
         </a-scene>
 
         <div

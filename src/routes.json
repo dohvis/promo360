@@ -8,6 +8,11 @@
     }
   },
   {
+    "path": "/video",
+    "page": "./video",
+    "chunk": "video"
+  },
+  {
     "path": "/error",
     "page": "./error",
     "chunk": "main"
